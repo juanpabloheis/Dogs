@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Dog from "../Dog/Dog";
+import { Dog, Loading } from "../index";
 import styles from "./Dogs.module.css";
 
 export default function Dogs({ breeds }) {
@@ -11,7 +11,7 @@ export default function Dogs({ breeds }) {
   }, [state]);
 
   return (
-    <div className={styles.body}>
+    <div className={styles.container}>
       {breeds.length ? (
         breeds.map((dog) => {
           return (
@@ -26,7 +26,7 @@ export default function Dogs({ breeds }) {
           );
         })
       ) : (
-        <div>Loading...</div>
+        <Loading />
       )}
     </div>
   );

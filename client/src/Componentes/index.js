@@ -4,6 +4,7 @@ import Filters from "./Filters/Filters"
 import NavBar from "./NavBar/NavBar"
 import Pagination from "./Pagination/Pagination"
 import SearchBar from "./SearchBar/SearchBar"
+import Loading from "./Loading/Loading"
 
 export {
     Dog,
@@ -11,5 +12,6 @@ export {
     Filters,
     NavBar,
     Pagination,
-    SearchBar
+    SearchBar,
+    Loading
 }

@@ -20,19 +20,17 @@ export default function SearchBar() {
   }
 
   return (
-    <div className={style.container}>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input
-          className={style.input}
-          type="Search"
-          placeholder="Search Breed..."
-          value={breed}
-          onChange={(e) => handleChange(e)}
-        />
-        <button type="submit">
-          <BiSearch />
-        </button>
-      </form>
-    </div>
+    <form className={style.container} onSubmit={(e) => handleSubmit(e)}>
+      <input
+        className={style.input}
+        type="Search"
+        placeholder="Search..."
+        value={breed}
+        onChange={(e) => handleChange(e)}
+      />
+      <button type="submit">
+        <BiSearch />
+      </button>
+    </form>
   );
 }

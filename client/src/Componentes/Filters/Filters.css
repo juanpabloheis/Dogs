@@ -1,0 +1,37 @@
+.containerFilter{
+    display: flex;
+    justify-content: center;
+}
+
+.divOrder{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* align-items: center; */
+    /* flex-direction: column; */
+}
+
+.divFilter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-direction: column; */
+}
+
+.inputFilter {
+    border: none;
+    color: black;
+    background-color: #4c474975;
+    width: 30vh;
+    height: 25px;
+    border-radius: 3px;
+}
+
+.inputOrder {
+    border: none;
+    color: black;
+    background-color: #4c474975;
+    width: 30vh;
+    height: 25px;
+    border-radius: 3px;
+}

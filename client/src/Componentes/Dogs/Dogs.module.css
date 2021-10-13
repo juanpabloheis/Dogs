@@ -1,0 +1,14 @@
+.body {
+  display: grid;
+  margin: 20px;
+  grid-template-columns: repeat(4, minmax(200px, 280px)) ;
+  grid-template-rows: 50% 50%;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+link {
+  text-decoration: none;
+  color: black;
+}

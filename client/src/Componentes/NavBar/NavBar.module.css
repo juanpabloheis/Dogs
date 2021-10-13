@@ -1,0 +1,40 @@
+  .container_navBar {
+    /* width: 100%;
+    position: fixed;
+    z-index: 100;  */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: rgb(54, 81, 148);
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 5px;
+  }
+  
+  .container_navBar:hover {
+    background-color: rgb(117, 135, 180);
+    color: black;
+    /* border:0.15em solid #eeebeb; */
+    /* box-shadow: 0 5px 10px rgb(196, 192, 192); */
+}
+
+  .btn_NavBar {
+    border: none;
+    /* font-weight: bolder; */
+    /* border: 2px solid black; */
+    border-radius: 5px;
+    color: black;
+    height: 40px;
+  }
+  
+  .btn_NavBar:hover {
+    /* background-color: rgba(25, 66, 41, 0.74); */
+    /* color: white; */
+    padding: 5px;
+    border-color: cornsilk;
+    -webkit-transform: scale(1.10); 
+    transform: scale(1.10);
+    /* box-shadow: 0 5px 10px rgb(196, 192, 192); */
+  }
+  

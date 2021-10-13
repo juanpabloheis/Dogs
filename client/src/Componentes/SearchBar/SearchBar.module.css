@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  width: 100px;
+  min-width: 100vh;
+  height: 50px;
+  border-radius: 3px;;
+  color: black;
+  background-color: rgba(235, 235, 235, 0.856);
+}
+
+.input {
+  border: none;
+  background-color: transparent;
+  width: 80%;
+  height: 100%;
+  /* border: none;
+  color: black;
+  background-color: rgba(235, 235, 235, 0.856);
+  width: 70vh;
+  height: 35px;
+  border-radius: 3px; */
+}
+
+.input:hover {
+  background-color: rgba(235, 235, 235, 0.856);
+  color: black;
+}
+
+.container button {
+  border: none;
+  background-color: transparent;
+  /*color: black;
+  width: 15vh;
+  height: 35px;
+  border-radius: 9999px; */
+}
+
+.container button:hover {
+  background-color: rgba(119, 110, 110, 0.219);
+  color: black;
+}

@@ -20,6 +20,10 @@ export default function rootReducer(state = initialState, action) {
       ...state,
       breedDetail: action.payload
     };
+    case 'DELETE_DETAIL': return {
+      ...state,
+      breedDetail: null
+    };
     case 'GET_TEMPERAMENTS': return {
       ...state,
       temperaments: action.payload
@@ -32,7 +36,7 @@ export default function rootReducer(state = initialState, action) {
         console.log({ 'entre a Reducer A-Z': action.payload })
         return {
           ...state,
-          breedsFiltered: [...state.breeds.sort((a, b) => {
+          breedsFiltered: [...state.breedsFiltered.sort((a, b) => {
             if (a.name.toUpperCase() > b.name.toUpperCase()) {
               return 1;
             } else {
@@ -45,7 +49,7 @@ export default function rootReducer(state = initialState, action) {
         console.log({ 'entre a Reducer Z-A': action.payload })
         return {
           ...state,
-          breedsFiltered: [...state.breeds.sort((a, b) => {
+          breedsFiltered: [...state.breedsFiltered.sort((a, b) => {
             if (a.name.toUpperCase() < b.name.toUpperCase()) {
               return 1;
             } else {
@@ -58,18 +62,18 @@ export default function rootReducer(state = initialState, action) {
         console.log({'estoy en reducer -a+': action.payload})
         return {
           ...state,
-          breedsFiltered: [...state.breeds.sort((a, b) => a.weight.imperial.split('-')[0] - b.weight.imperial.split('-')[0])]
+          breedsFiltered: [...state.breedsFiltered.sort((a, b) => a.weight.imperial.split('-')[0] - b.weight.imperial.split('-')[0])]
         }
       }
       if (action.payload === '+ a -') {
         return {
           ...state,
-          breedsFiltered: [...state.breeds.sort((a, b) => b.weight.imperial.split('-')[0] - a.weight.imperial.split('-')[0])]
+          breedsFiltered: [...state.breedsFiltered.sort((a, b) => b.weight.imperial.split('-')[0] - a.weight.imperial.split('-')[0])]
         }
       } else {
         return {
           ...state,
-          breedsFiltered: [...state.breeds]
+          breedsFiltered: [...state.breedsFiltered]
         }
       }
       
@@ -93,7 +97,7 @@ export default function rootReducer(state = initialState, action) {
           breedsFiltered: state.breeds.filter(dog => typeof dog.id === 'string')
         }
       }
-      if (action.payload === 'All temperaments') {
+      if (action.payload === 'Temperaments') {
         return {
           ...state,
           breedsFiltered: [...state.breeds]

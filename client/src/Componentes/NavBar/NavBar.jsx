@@ -8,7 +8,7 @@ export default function NavBar() {
     <div className={styles.container_navBar}>
       <Link to={`/home`}>
         <img src="" />
-        <button className={styles.Linkbtn_NavBar}>HOME</button>
+        <button className={styles.btn_NavBar}>HOME</button>
       </Link>
       <SearchBar />
       <Link to={`/createDog`}>

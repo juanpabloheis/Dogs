@@ -48,6 +48,10 @@ export function getDetail(id) {
     }
 }
 
+export function deleteDetail() {
+    return { type: 'DELETE_DETAIL'}
+}
+
 export function addDog(dog) {
     return async function (dispatch) {
         await axios.post(URL_BREED_CREATED, dog);

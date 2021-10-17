@@ -1,9 +1,10 @@
-.cointainerHome{
-    background-image: linear-gradient(-225deg, #7085b634 0%, #87a6d94f 50%, #def3f854 100%), url(https://www.teahub.io/photos/full/260-2604238_wallpaper-dog-look-up-black-background-perros-envenenados.jpg); 
+.cointainer{
+    background-image: linear-gradient(-500deg, #7085b62a 0%, #5a6a8362 0%, #ffffffc5 0%), url(https://www.teahub.io/photos/full/260-2604238_wallpaper-dog-look-up-black-background-perros-envenenados.jpg); 
 }
 
 .divSearchFilter{
-    background-color: rgb(117, 135, 180);
+    padding-top: 5px;
+    /* background-color: rgb(117, 135, 180); */
 }
 
    

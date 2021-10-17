@@ -32,7 +32,7 @@ export default function Home() {
   console.log({ "BreedsFiltered en Comp Home": breedsFiltered });
   console.log({ "allDogsPerPage en Comp Home": allDogsPerPage });
   return (
-    <div /* className={styles.cointainerHome} */>
+    <div className={styles.cointainer}>
       <NavBar />
       <div className={styles.divSearchFilter}>
         <Filters />

@@ -1,6 +1,19 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divFilter{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .containerFilter{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .divOrder{
@@ -8,13 +21,6 @@
     justify-content: space-between;
     align-items: center;
     /* align-items: center; */
-    /* flex-direction: column; */
-}
-
-.divFilter{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     /* flex-direction: column; */
 }
 

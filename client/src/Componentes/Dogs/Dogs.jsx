@@ -12,8 +12,10 @@ export default function Dogs({ breeds }) {
 
   return (
     <div className={styles.container}>
-      {breeds.length ? (
-        breeds.map((dog) => {
+      {breeds.length 
+      ? <div className={styles.containerDogs}>
+      
+        {breeds.map((dog) => {
           return (
             <Link key={dog.id} to={`/detail/${dog.id}`} className={styles.link}>
               <Dog
@@ -24,10 +26,11 @@ export default function Dogs({ breeds }) {
               />
             </Link>
           );
-        })
-      ) : (
-        <Loading />
-      )}
+        })}
+       
+      </div>  
+      : <Loading />
+      }
     </div>
   );
 }

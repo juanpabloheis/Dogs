@@ -6,7 +6,7 @@
   /* border: 1px solid rgba(0, 0, 0, 0.125); */
   border-radius: 0.25rem;
   word-wrap: break-word;
-  background-color: rgba(139, 136, 136, 0.096);
+  background-color: rgba(255, 255, 255, 0.767);
   background-clip: border-box;
   box-shadow: 0 0 3px black;
 }
@@ -26,6 +26,7 @@
   height: 10%;
   justify-content: center;
   text-decoration: none;
+  font-family: 'Roboto', sans-serif;
 }
 
 .container p {

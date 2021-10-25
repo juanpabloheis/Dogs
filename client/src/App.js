@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from "react-router-dom";
 import styles from './App.module.css';
-import {Landing, Home, FormDog, DogDetail} from "./Pages/index"
+import { Landing, Home, FormDog, DogDetail } from "./Pages/index"
 
 export default function App() {
   return (

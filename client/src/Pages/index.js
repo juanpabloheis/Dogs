@@ -7,5 +7,5 @@ export {
     Landing,
     Home, 
     DogDetail,
-    FormDog 
+    FormDog,
 }

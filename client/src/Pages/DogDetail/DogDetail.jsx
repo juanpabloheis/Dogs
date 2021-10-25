@@ -18,13 +18,15 @@ export default function DogDetail(props) {
 
   return (
     <div className={styles.container}>
-      <NavBar />
+      <div className={styles.navbar}>
+        <NavBar />
+      </div>
       {breedDetail ? (
-        <div className={styles.containerDetail}>
+        <div className={styles.containerDetail} background>
           <div className={styles.card}>
             <img
               className="image"
-              src={breedDetail?.image ? breedDetail.image.url : <Loading/>}
+              src={breedDetail?.image ? breedDetail.image.url : <Loading />}
               alt="Not found"
             />
             <h3>{breedDetail.name}</h3>

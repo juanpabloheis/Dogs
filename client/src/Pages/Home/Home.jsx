@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBreeds, getTemperaments } from "../../Actions/Index";
-import {
-  Dogs,
-  NavBar,
-  Filters,
-  Pagination,
-} from "../../Componentes/index";
+import { Dogs, NavBar, Filters, Pagination } from "../../Componentes/index";
 import styles from "./Home.module.css";
 
 export default function Home() {
@@ -29,20 +24,24 @@ export default function Home() {
     setCurrentPage(number);
   }
 
-  console.log({ "BreedsFiltered en Comp Home": breedsFiltered });
-  console.log({ "allDogsPerPage en Comp Home": allDogsPerPage });
   return (
-    <div className={styles.cointainer}>
-      <NavBar />
-      <div className={styles.divSearchFilter}>
+    <div className={styles.container}>
+      <div className={styles.navbar}>
+        <NavBar />
+      </div>
+      <div className={styles.filters}>
         <Filters />
       </div>
-      <Dogs breeds={allDogsPerPage} />
-      <Pagination
-        dogsPerPage={dogsPerPage}
-        breeds={breedsFiltered}
-        paginate={paginate}
-      />
+      <div className={styles.dogs}>
+        <Dogs breeds={allDogsPerPage} />
+      </div>
+      <div className={styles.pagination}>
+        <Pagination
+          dogsPerPage={dogsPerPage}
+          breeds={breedsFiltered}
+          paginate={paginate}
+        />
+      </div>
     </div>
   );
 }

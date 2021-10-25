@@ -1,4 +1,4 @@
-.app {
+/* .app {
   text-align: center;
 }
 
@@ -35,4 +35,26 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+:root {
+  --theme-color: white;
+  --primary-color: #062c4e;
+  --secondary-color: #5d7ca0e1;
+  --text-color: black;
+  --text-color-inverse: white;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--theme-color);
+  color: var(--text-color);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
 }

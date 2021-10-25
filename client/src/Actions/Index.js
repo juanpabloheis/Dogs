@@ -77,3 +77,7 @@ export function orderBy(payload) {
     return { type: 'ORDER_BY', payload: payload }
 };
 
+export function cleanFilters() {
+    return { type: 'CLEAN_FILTERS' }
+};
+

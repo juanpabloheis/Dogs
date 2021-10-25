@@ -1,21 +1,19 @@
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  min-height: 80vh;
-}
 .containerDogs {
   display: grid;
-  margin: 20px;
-  grid-template-columns: repeat(4, minmax(200px, 280px)) ;
-  grid-template-rows: 50% 50%;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 250px)) ;
   align-items: center;
-  justify-content: center;
   gap: 1em;
 }
 
-link {
-  text-decoration: none;
-  color: black;
+@media (min-width: 900px){
+  .containerDogs {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, minmax(200px, 250px)) ;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2em;
+    align-items: center; 
+  }
 }

@@ -5,14 +5,14 @@ import styles from "./NavBar.module.css";
 
 export default function NavBar() {
   return (
-    <div className={styles.container_navBar}>
+    <div className={styles.container}>
       <Link to={`/home`}>
         <img src="" />
-        <button className={styles.btn_NavBar}>HOME</button>
+        <button className={styles.btn}>HOME</button>
       </Link>
       <SearchBar />
       <Link to={`/createDog`}>
-        <button className={styles.btn_NavBar}>CREATE DOG</button>
+        <button className={styles.btn}>CREATE DOG</button>
       </Link>
     </div>
   );

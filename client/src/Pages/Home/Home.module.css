@@ -1,10 +1,53 @@
-.cointainer{
-    background-image: linear-gradient(-500deg, #7085b62a 0%, #5a6a8362 0%, #ffffffc5 0%), url(https://www.teahub.io/photos/full/260-2604238_wallpaper-dog-look-up-black-background-perros-envenenados.jpg); 
+/* Para celular */
+.container {
+    font-size: 1.2rem;
+    min-height: 100vh;
+    display: grid;
+    grid-template:
+        "navbar"     55px
+        "filters"    50px
+        "dogs"       auto
+        "pagination" 50px;
+}
+  
+/* Para notebook */
+@media (min-width: 600px){
+    .container {
+        grid-template:
+            "navbar      navbar"     55px
+            "filters     dogs"       auto
+            "pagination  pagination" 50px /
+            220px        auto;
+    }
 }
 
-.divSearchFilter{
-    padding-top: 5px;
-    /* background-color: rgb(117, 135, 180); */
+/* Para monitor */
+@media (min-width: 900px){
 }
 
-   
+.container > * {
+    text-align: center;
+}
+
+.navbar {
+    grid-area: navbar;
+    background-color: var(--primary-color);
+}
+
+.filters {
+    padding: 1em;
+    grid-area: filters;
+    background-color: var(--secondary-color);
+    border-right: 1px solid var(--primary-color);
+}
+
+.dogs {
+    padding: 1em;
+    grid-area: dogs;
+    background-color: var(--secondary-color);
+}
+
+.pagination {
+    grid-area: pagination;
+    background-color: var(--primary-color);
+}

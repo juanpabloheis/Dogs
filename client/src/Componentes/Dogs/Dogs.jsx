@@ -11,7 +11,7 @@ export default function Dogs({ breeds }) {
   }, [state]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} >
       {breeds.length 
       ? <div className={styles.containerDogs}>
       
@@ -19,7 +19,7 @@ export default function Dogs({ breeds }) {
           return (
             <Link key={dog.id} to={`/detail/${dog.id}`} className={styles.link}>
               <Dog
-                name={dog.name}
+                name={dog.name.toUpperCase()}
                 image={dog?.image?.url}
                 temperament={dog.temperament}
                 key={dog.id}

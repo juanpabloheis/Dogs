@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { filterBy, orderBy } from "../../Actions/Index";
+import { filterBy, orderBy, cleanFilters } from "../../Actions/Index";
 import styles from "./Filters.module.css";
 
 export default function Filters() {
@@ -15,63 +15,62 @@ export default function Filters() {
     dispatch(orderBy(e.target.value));
   }
 
+  function handlecleanFilters() {
+    dispatch(cleanFilters());
+  }
+
   return (
     <div className={styles.container}>
-      <div className={styles.divFilter}>
-        <label>Filter by: </label>
-        <div className={styles.containerFilter}>
-          <div>
-            {/* <label>Temperaments: </label> */}
-            <select
-              className={styles.inputFilter}
-              onChange={handleChangeFilter}
-            >
-              <option value="Temperaments">Temperaments</option>
-              {temperaments?.map((temp, index) => {
-                return (
-                  <option value={temp} key={index}>
-                    {temp}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
+      <label>Filter by: </label>
 
-          <div>
-            {/* <label>Origin: </label> */}
-            <select
-              className={styles.inputFilter}
-              onChange={handleChangeFilter}
-            >
-              {/* <option>Origin: </option> */}
-              <option value="Origin">Origin</option>
-              <option value="API">API</option>
-              <option value="Created by User">Created by User</option>
-            </select>
-          </div>
-        </div>
+      <br />
+
+      <label>Temperaments: </label>
+      <select className={styles.inputs} onChange={handleChangeFilter}>
+        {temperaments?.map((temp, index) => {
+          return (
+            <option value={temp} key={index}>
+              {temp}
+            </option>
+          );
+        })}
+      </select>
+
+      <br />
+
+      <label>Created by: </label>
+      <div className={styles.inputs}>
+        <select className={styles.inputs} onChange={handleChangeFilter}>
+          <option value="API">API</option>
+          <option value="Created by User">Created by User</option>
+        </select>
+        {/*<label><input type="checkbox" value="API" />API</label>
+          <label><input type="checkbox" value="Created by User"/>Created by User</label> */}
       </div>
 
-      <div className={styles.divFilter}>
-        <label>Order by: </label>
-        <div className={styles.containerFilter}>
-          <div>
-            <label>ABC: </label>
-            <select className={styles.inputFilter} onChange={handleChangeOrder}>
-              <option value="A-Z">A-Z</option>
-              <option value="Z-A">Z-A</option>
-            </select>
-          </div>
+      <br />
 
-          <div>
-            <label>Weight: </label>
-            <select className={styles.inputFilter} onChange={handleChangeOrder}>
-              <option value="- a +">- a +</option>
-              <option value="+ a -">+ a -</option>
-            </select>
-          </div>
-        </div>
-      </div>
+      <label>Order by: </label>
+
+      <br />
+
+      <label>ABC: </label>
+      <select className={styles.inputs} onChange={handleChangeOrder}>
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
+      </select>
+
+      <br />
+
+      <label>Weight: </label>
+      <select className={styles.inputs} onChange={handleChangeOrder}>
+        <option value="- a +">- a +</option>
+        <option value="+ a -">+ a -</option>
+      </select>
+
+      <br />
+
+      <button onClick={() => handlecleanFilters()}>Clean filters</button>
     </div>
   );
 }

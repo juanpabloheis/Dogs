@@ -1,21 +1,23 @@
-.container_navBar {
-  /* width: 100%;
-    position: fixed;
-    z-index: 100;  */
+.container {
+  font-size: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
-  background-color: rgb(54, 81, 148);
-  padding-left: 30px;
-  padding-right: 30px;
+  height: 100%;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.52);
+  padding: 0 1rem;
 }
 
-.btn_NavBar {
+.btn {
+  font-size: 0.9em;
+  color: var(--text-color-inverse);
   border: none;
   height: 35px;
-  width:110px;
   border-radius: 3px;
-  color: black;
+  background: none;
+}
+
+.btn:hover {
+  color: var(--text-color);
   background-color: rgba(235, 235, 235, 0.856);
 }

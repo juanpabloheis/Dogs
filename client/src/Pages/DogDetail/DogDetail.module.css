@@ -1,13 +1,23 @@
 .container {
-    height: 100vh;
+    font-size: 1rem;
+    min-height: 100vh;
+    display: grid;
+    grid-template:
+        "navbar"           55px
+        "containerDetail"  auto;
+}
+
+.navbar {
+    grid-area: navbar;
+    background-color: var(--primary-color);
 }
 
 .containerDetail {
+    grid-area: containerDetail;
     background-image: linear-gradient(-225deg, #7085b634 0%, #87a6d94f 0%, #ffffffde 0%), url(https://www.teahub.io/photos/full/260-2604238_wallpaper-dog-look-up-black-background-perros-envenenados.jpg); 
+    height: 100%;
     display: flex;
     justify-content: center;
-    padding: 15px;
-    height: 100%;
 }
 
 .card {

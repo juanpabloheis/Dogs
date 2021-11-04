@@ -1,21 +1,23 @@
 import React from "react";
-import './Pagination.css'
+import styles from "./Pagination.module.css";
 
 export default function Pagination({ dogsPerPage, breeds, paginate }) {
+  const pageNumbers = [];
 
-    const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(breeds.length / dogsPerPage); i++) {
+    pageNumbers.push(i);
+  }
 
-    for (let i = 1; i <= Math.ceil(breeds.length / dogsPerPage); i++) {
-        pageNumbers.push(i)
-    }
-
-    return (
-        <div className='pagination'>
-            {
-                pageNumbers?.map((number, index) => (
-                    <button className='btnPage' key={index} onClick={() => paginate(number)}>{number}</button>
-                ))
-            }
-        </div>
-    )
-};
+  return (
+    <div className={styles.container}>
+      {pageNumbers?.map((number, index) => (
+        <button
+          key={index}
+          onClick={() => paginate(number)}
+        >
+          {number}
+        </button>
+      ))}
+    </div>
+  );
+}

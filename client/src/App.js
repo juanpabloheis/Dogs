@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from "react-router-dom";
 import styles from './App.module.css';
-import { Landing, Home, FormDog, DogDetail } from "./Pages/index"
+import { Landing, Home, CreateDog, DogDetail } from "./Pages/index"
 
 export default function App() {
   return (
@@ -9,7 +9,7 @@ export default function App() {
       <Route exact path='/' component={Landing} />
       <Route exact path='/home' component={Home} />
       <Route exact path='/detail/:id' component={DogDetail} />
-      <Route exact path='/createDog' component={FormDog} />
+      <Route exact path='/createDog' component={CreateDog} />
     </div>
   );
 }

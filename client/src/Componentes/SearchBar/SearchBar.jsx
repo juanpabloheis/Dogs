@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getBreeds } from "../../Actions/Index";
 import { BiSearch } from "react-icons/bi";
+import { Link } from "react-router-dom";
 import style from "./SearchBar.module.css";
 
 export default function SearchBar() {
@@ -11,11 +12,11 @@ export default function SearchBar() {
 
   function handleChange(e) {
     setBreed(e.target.value);
-    dispatch(getBreeds(breed));
   }
 
   function handleSubmit(e) {
     e.preventDefault();
+    dispatch(getBreeds(breed));
     setBreed("");
   }
 
@@ -29,7 +30,7 @@ export default function SearchBar() {
         onChange={(e) => handleChange(e)}
       />
       <button type="submit">
-        <BiSearch />
+          <BiSearch />
       </button>
     </form>
   );

@@ -14,7 +14,7 @@
 
 .containerDetail {
     grid-area: containerDetail;
-    background-image: linear-gradient(-225deg, #7085b634 0%, #87a6d94f 0%, #ffffffde 0%), url(https://www.teahub.io/photos/full/260-2604238_wallpaper-dog-look-up-black-background-perros-envenenados.jpg); 
+    background-image: var(--theme-color);
     height: 100%;
     display: flex;
     justify-content: center;

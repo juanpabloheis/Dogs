@@ -1,11 +1,12 @@
-.pagination {
+.container {
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
-.btnPage {
+.container button {
   /* border: none; */
   border: none;
   color: black;
@@ -15,7 +16,7 @@
   margin: 1px;
 }
 
-.btnPage:hover {
-  background-color: rgb(54, 81, 148);
+.container button:hover {
+  background-color: var(--secondary-color);
   color: rgba(250, 250, 250, 0.925);
 }

@@ -1,54 +1,14 @@
-/* .app {
-  text-align: center;
-}
-
-.app-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .app-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.app-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.app-link {
-  color: #61dafb;
-}
-
-@keyframes app-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 :root {
-  --theme-color: white;
-  --primary-color: #062c4e;
-  --secondary-color: #5d7ca0e1;
-  --text-color: black;
-  --text-color-inverse: white;
+  --theme-color: linear-gradient(-225deg, #7085b634 0%, #87a6d94f 0%, #ffffffde 0%), url(https://www.teahub.io/photos/full/260-2604238_wallpaper-dog-look-up-black-background-perros-envenenados.jpg); 
+  --primary-color: #181818;
+  --secondary-color: #e7a52ae1;
+  --tertiary-color: white;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--theme-color);
-  color: var(--text-color);
+  color: var(--primary-color);
   text-align: center;
   margin: 0;
   padding: 0;

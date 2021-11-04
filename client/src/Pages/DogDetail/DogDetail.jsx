@@ -22,7 +22,7 @@ export default function DogDetail(props) {
         <NavBar />
       </div>
       {breedDetail ? (
-        <div className={styles.containerDetail} background>
+        <div className={styles.containerDetail} >
           <div className={styles.card}>
             <img
               className="image"

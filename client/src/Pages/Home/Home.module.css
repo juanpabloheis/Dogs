@@ -44,7 +44,7 @@
 .dogs {
     padding: 1em;
     grid-area: dogs;
-    background-color: var(--secondary-color);
+    background-color: var(--theme-color); 
 }
 
 .pagination {

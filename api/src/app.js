@@ -8,9 +8,10 @@ const { DOMAIN_CORS } = process.env;
 require('./db.js');
 
 const server = express();
-
+const cors = require('cors');
 server.name = 'API';
 
+server.use(cors())
 server.use(express.urlencoded({ extended: true, limit: '50mb' }));
 server.use(express.json({ limit: '50mb' }));
 server.use(cookieParser());

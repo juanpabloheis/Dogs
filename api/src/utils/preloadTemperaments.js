@@ -15,7 +15,7 @@ async function preloadTemperaments() {
     arrayTemperaments.map(async (temperaments) => {
       await Temperament?.findOrCreate({
         where: {
-          name: temperaments,
+          name: temperaments && temperaments,
         },
       });
     });

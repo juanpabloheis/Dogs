@@ -33,7 +33,7 @@ router.post("/preload", async (req, res, next) => {
     arrayTemperaments = arrayTemperaments?.split(',');
     arrayTemperaments = arrayTemperaments.map(e => e?.trim());
     arrayTemperaments.map(async temperaments => {
-      await Temperament.findOrCreate({
+      await Temperament?.findOrCreate({
         where: {
           name: temperaments
         },

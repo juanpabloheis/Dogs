@@ -1,22 +1,17 @@
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-const axios = require('axios')
+const preloadTemperaments = require('./src/utils/preloadTemperaments.js');
 require('dotenv').config();
-const { DOMAIN_API } = process.env;
+const { PORT } = process.env;
 
 
 // Syncing all the models at once.
 conn.sync({ force: true })
-  .then(async () => {
-    server.set("port", process.env.PORT || 3001);
-    server.listen(server.get("port"), () => {
-      console.log(`Server running on port ${server.get("port")}`); // eslint-disable-line no-console
+  .then(() => {
+    server.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`); // eslint-disable-line no-console
     });
-    try {
-      await axios.post(DOMAIN_API + '/temperament/preload')
-    } catch (err) {
-      console.log(err)
-    }
+    preloadTemperaments()
   });
 
 

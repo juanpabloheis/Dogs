@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getBreeds } from "../../Actions/Index";
 import { BiSearch } from "react-icons/bi";
-import { Link } from "react-router-dom";
 import style from "./SearchBar.module.css";
 
 export default function SearchBar() {

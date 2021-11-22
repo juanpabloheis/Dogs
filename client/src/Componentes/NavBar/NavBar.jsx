@@ -7,7 +7,6 @@ export default function NavBar() {
   return (
     <div className={styles.container}>
       <Link to={`/home`}>
-        <img src="" />
         <button className={styles.btn}>HOME</button>
       </Link>
       <SearchBar />

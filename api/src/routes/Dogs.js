@@ -84,8 +84,6 @@ router.get('/', async (req, res, next) => {
                 }
             })
 
-            console.log({ 'dbDogs': dbDogs })
-
             let dogs = dbDogs.concat(apiDogs);
             res.json(dogs)
         }

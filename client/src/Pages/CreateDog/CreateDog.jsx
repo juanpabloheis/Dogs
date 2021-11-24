@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import styles from "./CreateDog.module.css";
 import { getTemperaments } from "../../Actions/Index";
 import { NavBar } from "../../Componentes/index";
+import { validate } from "./validate";
 
 export default function FormDog() {
   const dispatch = useDispatch();
@@ -17,11 +18,20 @@ export default function FormDog() {
     temperaments: [],
   });
 
+  const [error, setError] = useState("");
+
   useEffect(() => {
     dispatch(getTemperaments());
   }, [dispatch]);
 
   function handleChange(e) {
+    setError(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
+
     setInput({
       ...input,
       [e.target.name]: e.target.value,
@@ -66,13 +76,14 @@ export default function FormDog() {
           <div className={styles.divContainer}>
             <label>Name* </label>
             <input
-              className={styles.input}
+              className={error.name ? styles.inputDanger : styles.input}
               type="text"
               name="name"
               value={input.name}
               required
               onChange={(e) => handleChange(e)}
             />
+            {error.name ? <p className={styles.danger}>{error.name}</p> : ""}
           </div>
 
           <div className={styles.divContainer}>
@@ -143,7 +154,9 @@ export default function FormDog() {
               <label>{input.temperaments.map((i) => i + ", ")}</label>
             </ul>
           </div>
-          <input type="submit" className={styles.submit} />
+          <div className={styles.divContainer}>
+            <input type="submit" className={styles.submit} />
+          </div>
         </form>
       </div>
     </div>

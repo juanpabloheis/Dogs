@@ -5,16 +5,18 @@
   align-items: center;
   height: 100%;
   box-shadow: 0 0 3px rgba(255, 255, 255, 0.52);
-  padding: 0 1rem;
+  padding: 0 2.5rem;
 }
 
 .btn {
-  font-size: 0.9em;
+  font-size: 1em;
   color: var(--tertiary-color);
   border: none;
   height: 35px;
   border-radius: 3px;
   background: none;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .btn:hover {

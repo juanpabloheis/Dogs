@@ -33,17 +33,18 @@ router.get('/', async (req, res, next) => {
                 }
             });
 
-            dbDogs = dbDogs.map(e => e.dataValues)
+            dbDogs = dbDogs.map(e => e.toJSON())
             dbDogs = dbDogs.map(e => {
                 return {
                     id: e.id,
                     name: e.name,
+                    image: e.image,
                     height: e.height,
                     weight: e.weight,
                     life_span: e.life_span,
-                    temperament: e.temperaments.map(t => t.dataValues.name).join(', ')
+                    temperament:  e.temperaments.map(t => t.name).join(', ')
                 }
-            })
+            }) 
 
             apiDogs = apiDogs.filter(dog => dog.name.toLowerCase().includes(name.toLowerCase()));
             if (!apiDogs.length) return res.status(404).send('No se ha encontrado la raza ingresada');
@@ -62,34 +63,23 @@ router.get('/', async (req, res, next) => {
                 }
             });
 
-            if (dbDogs.length) {
-                console.log({
-                    'dbdogs': dbDogs,
-                    'dbdogs[0].dataValues': dbDogs[0].dataValues,
-                    'dbdogs[0].dataValues.temperaments[0]': dbDogs[0].dataValues.temperaments[0],
-                    'dbdogs[0].dataValues.temperaments[0].dataValues': dbDogs[0].dataValues.temperaments[0].dataValues,
-                    //         'temperaments': dbDogs[0].temperaments[0],
-                })
-            }
-
-            dbDogs = dbDogs.map(e => e.dataValues)
+            dbDogs = dbDogs.map(e => e.toJSON())
             dbDogs = dbDogs.map(e => {
                 return {
                     id: e.id,
                     name: e.name,
+                    image: e.image,
                     height: e.height,
                     weight: e.weight,
                     life_span: e.life_span,
-                    temperament: e.temperaments.map(t => t.dataValues.name).join(', ')
+                    temperament:  e.temperaments.map(t => t.name).join(', ')
                 }
-            })
+            }) 
 
             let dogs = dbDogs.concat(apiDogs);
             res.json(dogs)
         }
     } catch (e) {
-        // console.log(e);
-        // res.sendStatus(500) // Status Code 500 (Internal Server Error)
         next(e)
     }
 })
@@ -113,18 +103,8 @@ router.get('/:idRaza', async (req, res, next) => {
         }
     }
     catch (e) {
-        // res.sendStatus(500)
         next(e)
     }
 })
 
 module.exports = router;
-
-
-
-/*
-Está intentando almacenar el objeto de respuesta completo que es una estructura de datos compleja y contiene dependencias circulares
-como se indica en el mensaje de error (TypeError: Conversión de estructura circular a JSON)
-Lo que debe hacer es asignar los datos que necesita en lugar de almacenar el objeto circular completo,
-*/
-

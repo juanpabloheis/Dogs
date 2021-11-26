@@ -11,10 +11,13 @@ export default function FormDog() {
   const temperaments = useSelector((state) => state.temperaments);
   const [input, setInput] = useState({
     name: "",
-    height: "",
-    weight: "",
-    life_span: "",
-    image: "",
+    minHeight: "",
+    maxHeight: "",
+    minWeight: "",
+    maxWeight: "",
+    minLifeSpan: "",
+    maxLifeSpan: "",
+    image: undefined,
     temperaments: [],
   });
 
@@ -25,43 +28,58 @@ export default function FormDog() {
   }, [dispatch]);
 
   function handleChange(e) {
+    console.log('e.target.name', e.target.name)
     setError(
-      validate({
-        ...input,
-        [e.target.name]: e.target.value,
-      })
+      validate(
+        e.target.name === "temperaments" 
+        ? {...input, [e.target.name]: [...input.temperaments, e.target.value] }
+        : {...input, [e.target.name]: e.target.value}
+      )
     );
 
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value,
-    });
-  }
-
-  const handleTempChange = (e) => {
-    if (input.temperaments.includes(e.target.value)) {
-      return alert(
-        "You have already selected that temperament, plase select another one."
-      );
+    if(!error.temperaments && e.target.name === "temperaments"){
+      setInput(
+        {...input, [e.target.name]: [...input.temperaments, e.target.value]}
+      )
+    } else if (!error.temperaments) {
+      setInput({...input, [e.target.name]: e.target.value}
+      )
     }
-    setInput((prev) => ({
-      ...prev,
-      temperaments: [...prev.temperaments, e.target.value],
-    }));
-  };
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(addDog(input));
-    alert("The dog was successfully created");
+
+    if(!Object.keys(error).length ){
+      dispatch(addDog({
+        name: input.name,
+        height: `${input.minHeight} - ${input.maxHeight}`,
+        weight: `${input.minWeight} - ${input.maxWeight}`,
+        life_span: `${input.minLifeSpan} - ${input.maxLifeSpan}`,
+        image: input.image,
+        temperaments: input.temperaments
+      }));
+
+      setInput({  
+        name: "",
+        minHeight: "",
+        maxHeight: "",
+        minWeight: "",
+        maxWeight: "",
+        minLifeSpan: "",
+        maxLifeSpan: "",
+        image: "",
+        temperaments: [],
+      });
+      alert("The dog was successfully created");
+    }
+  }
+
+  function handleDelete(t) {
     setInput({
-      name: "",
-      height: "",
-      weight: "",
-      life_span: "",
-      image: "",
-      temperaments: [],
-    });
+        ...input,
+        temperaments: input.temperaments.filter(e => e !== t)
+    })
   }
 
   return (
@@ -80,48 +98,85 @@ export default function FormDog() {
               type="text"
               name="name"
               value={input.name}
-              required
+/*               required */
               onChange={(e) => handleChange(e)}
             />
-            {error.name ? <p className={styles.danger}>{error.name}</p> : ""}
+            { error.name && <p className={styles.danger}>{ error.name }</p> }
           </div>
 
           <div className={styles.divContainer}>
             <label>Height* </label>
-            <input
-              className={styles.input}
-              type="text"
-              name="height"
-              value={input.height}
-              required
-              placeholder="min - max"
-              onChange={(e) => handleChange(e)}
-            />
+            <div className={error.height ? styles.inputDanger2 : styles.inputContainer}>
+              <input
+                className={styles.input2}
+                type="text"
+                name="minHeight"
+                value={input.minHeight}
+                required
+                placeholder="Min"
+                onChange={(e) => handleChange(e)}
+              /> |
+               <input
+                className={styles.input2}
+                type="text"
+                name="maxHeight"
+                value={input.maxHeight}
+                required
+                placeholder="Max"
+                onChange={(e) => handleChange(e)}
+              />  
+            </div>
+            { error.height && <p className={styles.danger}>{ error.height }</p> }
           </div>
 
           <div className={styles.divContainer}>
             <label>Weight* </label>
-            <input
-              className={styles.input}
-              type="text"
-              name="weight"
-              value={input.weight}
-              required
-              placeholder="min - max"
-              onChange={(e) => handleChange(e)}
-            />
+            <div className={styles.inputContainer}>
+              <input
+                className={styles.input2}
+                type="text"
+                name="minWeight"
+                value={input.minWeight}
+                required
+                placeholder="Min"
+                onChange={(e) => handleChange(e)}
+              /> |
+               <input
+                className={styles.input2}
+                type="text"
+                name="maxWeight"
+                value={input.maxWeight}
+                required
+                placeholder="Max"
+                onChange={(e) => handleChange(e)}
+              />  
+            </div>
+            { error.weight && <p className={styles.danger}>{ error.weight }</p> }
           </div>
 
           <div className={styles.divContainer}>
             <label>Life span* </label>
-            <input
-              className={styles.input}
-              type="text"
-              name="life_span"
-              value={input.life_span}
-              required
-              onChange={(e) => handleChange(e)}
-            />
+            <div className={styles.inputContainer}>
+              <input
+                className={styles.input2}
+                type="text"
+                name="minLifeSpan"
+                value={input.minLifeSpan}
+                required
+                placeholder="Min"
+                onChange={(e) => handleChange(e)}
+              /> |
+               <input
+                className={styles.input2}
+                type="text"
+                name="maxLifeSpan"
+                value={input.maxLifeSpan}
+                required
+                placeholder="Max"
+                onChange={(e) => handleChange(e)}
+              />  
+            </div>
+            { error.lifeSpan && <p className={styles.danger}>{ error.lifeSpan }</p> }
           </div>
 
           <div className={styles.divContainer}>
@@ -137,22 +192,32 @@ export default function FormDog() {
 
           <div className={styles.divContainer}>
             <label>Temperament* </label>
+            
             <select
               className={styles.input}
-              onChange={(e) => handleTempChange(e)}
+              onChange={(e) => handleChange(e)}
+              name="temperaments"
             >
-              <option className={styles.input}>Select temperament</option>
+              <option className={styles.input} >Select temperament</option>
               {temperaments?.map((temp, index) => {
                 return (
-                  <option name="temperaments" value={temp} key={index}>
+                  <option name="temperaments" value={input.temp} key={index}>
                     {temp}
                   </option>
                 );
               })}
             </select>
-            <ul>
-              <label>{input.temperaments.map((i) => i + ", ")}</label>
-            </ul>
+
+            { error.temperaments && <p className={styles.danger}>{ error.temperaments }</p> }
+            <div className={styles.temperamentsContainer}>
+              {input.temperaments.map((t) => 
+                <div className={styles.tempList}>
+                  <p className={styles.tempItem}>{t}</p>
+                  <button className={styles.buttonX} onClick={(() => handleDelete(t))}>X</button>
+                </div>
+              )}
+            </div>
+
           </div>
           <div className={styles.divContainer}>
             <input type="submit" className={styles.submit} />
@@ -162,53 +227,3 @@ export default function FormDog() {
     </div>
   );
 }
-
-/* return (
-  <div className={styles.container}>
-    <div className={styles.navbar}>
-      <NavBar />
-    </div>
-    <div className={styles.containerDetail}>
-      <form className={styles.card} onSubmit={(e) => handleSubmit(e)}>
-        <label>Create your dog! </label>
-
-        {Object.keys(input).map((key) => {
-          return (
-            key !== "temperaments" && (
-              <div className={styles.form}>
-                <label key={key}>{key}</label>
-                <input
-                  className={styles.input}
-                  key={key}
-                  type="text"
-                  name={key}
-                  value={input[key]}
-                  placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
-                  onChange={(e) => handleChange(e)}
-                />
-              </div>
-            )
-          );
-        })}
-
-        <label>Temperament* </label>
-        <select className={styles.input} onChange={(e) => handleTempChange(e)}>
-          <option>Select temperament</option>
-          {temperaments?.map((temp, index) => {
-            return (
-              <option name="temperaments" value={temp} key={index}>
-                {temp}
-              </option>
-            );
-          })}
-        </select>
-        <ul>
-          <label>{input.temperaments.map((i) => i + ", ")}</label>
-        </ul>
-        <div>
-          <input type="submit" />
-        </div>
-      </form>
-    </div>
-  </div>
-); */

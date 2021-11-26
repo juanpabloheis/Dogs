@@ -53,7 +53,8 @@
   box-shadow: 0 0 3px black;
   padding: 0.5rem;
   margin: 0.1em 0;
-  box-sizing: border-box
+  box-sizing: border-box;
+  outline: none;
 }
 
 .inputDanger {
@@ -65,7 +66,45 @@
   box-shadow: 0 0 3px black;
   padding: 0.5rem;
   margin: 0.1em 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.inputDanger2 {
+  display: flex;
+  width: 100%;
+  border-radius: 0.25rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.767);
+  background-clip: border-box;
+  box-shadow: 0 0 3px black;
+  padding: 0.5rem;
+  margin: 0.1em 0;
+  box-sizing: border-box;
+  border: red solid 1px;
+}
+
+.inputContainer {
+  display: flex;
+  width: 100%;
+  border-radius: 0.25rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.767);
+  background-clip: border-box;
+  box-shadow: 0 0 3px black;
+  padding: 0.5rem;
+  margin: 0.1em 0;
   box-sizing: border-box
+}
+
+.input2 {
+  width: 50%;
+  height: 98%;
+  border-radius: 0.25rem;
+  border: none;
+  outline: none;
+  align-content: center;
+  text-align: center;
 }
 
 .submit { 
@@ -89,4 +128,43 @@
   justify-content: left;
   color: #dc3545;
   margin: 0;
+  font-size: 0.9em;
+}
+.temperamentsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5em 0;
+  justify-content: space-evenly;
+  height: fit-content;
+}
+
+.tempList {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: black solid 1px;
+  border-radius: 1rem;
+  height: 1em;
+  padding: 0.3em;
+  width: fit-content;
+  margin: 0.2em 0.2em;
+}
+
+.tempItem {
+  margin: 0;
+  padding-right: 0.2em;
+  font-size: .8em;
+}
+
+.buttonX {
+  height: 20px;
+  width: 20px;
+  border: red solid 1px;
+  color: red;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8em;
 }

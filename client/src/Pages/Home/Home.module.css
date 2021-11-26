@@ -7,7 +7,8 @@
         "navbar"     55px
         "filters"    50px
         "dogs"       auto
-        "pagination" 50px;
+        "pagination" 50px
+        "footer"     50px;
 }
   
 /* Para notebook */
@@ -16,7 +17,8 @@
         grid-template:
             "navbar      navbar"     55px
             "filters     dogs"       auto
-            "pagination  pagination" 50px /
+            "filters     pagination" 50px 
+            "footer      footer"     50px /
             220px        auto;
     }
 }
@@ -44,10 +46,18 @@
 .dogs {
     padding: 1em;
     grid-area: dogs;
-    background-color: var(--theme-color); 
+    background-image: var(--theme-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pagination {
     grid-area: pagination;
+    background-color: grey;
+}
+
+.footer {
+    grid-area: footer;
     background-color: var(--primary-color);
 }

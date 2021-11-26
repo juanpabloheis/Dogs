@@ -20,21 +20,18 @@
     border: none;
     color: rgb(224, 223, 223);
     background-color: #4c474975;
-    width: 30vh;
-    height: 120px;
-    border-radius: 100px;
-    font-family:'Roboto', sans-serif;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 999px;
     text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
-    font-weight:500;
+    font-weight:bold;
     font-size: larger;
-   
-
 }
   
 .btnLanding:hover {
-    background-color: rgba(119, 110, 110, 0.219);
+    background-color: rgba(119, 110, 110, 0);
     color: rgb(224, 223, 223);
-    border:0.15em solid #eeebeb;
+    border:0.1em solid #eeebeb;
 }
 
 

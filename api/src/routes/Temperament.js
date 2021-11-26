@@ -9,7 +9,10 @@ const router = express.Router();
 // En una primera instancia deberán obtenerlos desde la API externa y guardarlos en su propia base de datos y luego ya utilizarlos desde allí
 router.get("/", async (req, res, next) => {
   try {
-    let dbTemperaments = await Temperament.findAll({ attributes: ["name"] });
+    let dbTemperaments = await Temperament.findAll({ 
+      attributes: ["name"], 
+      order: [['name', 'ASC']]
+    });
 
     if (!dbTemperaments.length)
       return res

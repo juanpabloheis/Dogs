@@ -6,7 +6,7 @@
   height: 100%;
 }
 
-.container button {
+.button {
   /* border: none; */
   border: none;
   color: black;
@@ -17,7 +17,17 @@
   cursor: pointer;
 }
 
-.container button:hover {
+.button:hover {
+  background-color: var(--secondary-color);
+  color: rgba(250, 250, 250, 0.925);
+}
+
+.btnselected {
+  border: none;
+  width: 5vh;
+  height: 30px;
+  margin: 1px;
+  cursor: pointer;
   background-color: var(--secondary-color);
   color: rgba(250, 250, 250, 0.925);
 }

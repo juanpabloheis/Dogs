@@ -89,7 +89,7 @@ export default function FormDog() {
       </div>
       <div className={styles.containerDetail}>
         <form className={styles.card} onSubmit={(e) => handleSubmit(e)}>
-          <label>Create your dog! </label>
+          <label className={styles.title}>Create your dog! </label>
           <br />
           <div className={styles.divContainer}>
             <label>Name* </label>

@@ -49,6 +49,7 @@ export default function Filters() {
       </div>
 
       <br />
+      <br />
 
       <label>Order by: </label>
 
@@ -70,7 +71,7 @@ export default function Filters() {
 
       <br />
 
-      <button onClick={() => handlecleanFilters()}>Clean filters</button>
+      <button className={styles.btn} onClick={() => handlecleanFilters()}>Reset</button>
     </div>
   );
 }

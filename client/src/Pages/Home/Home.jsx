@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBreeds, getTemperaments } from "../../Actions/Index";
-import { Dogs, NavBar, Filters, Pagination } from "../../Componentes/index";
+import { Dogs, NavBar, Filters, Pagination, Footer } from "../../Componentes/index";
 import styles from "./Home.module.css";
 
 export default function Home() {
@@ -40,8 +40,13 @@ export default function Home() {
           dogsPerPage={dogsPerPage}
           breeds={breedsFiltered}
           paginate={paginate}
+          currentPage={currentPage}
         />
+      </div> 
+      <div className={styles.footer}>
+        <Footer />
       </div>
+
     </div>
   );
 }

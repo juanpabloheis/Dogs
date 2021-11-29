@@ -208,8 +208,8 @@ export default function FormDog() {
 
             { error.temperaments && <p className={styles.danger}>{ error.temperaments }</p> }
             <div className={styles.temperamentsContainer}>
-              {input.temperaments.map((t) => 
-                <div className={styles.tempList}>
+              {input.temperaments.map((t, key) => 
+                <div className={styles.tempList} key={key}>
                   <p className={styles.tempItem}>{t}</p>
                   <button className={styles.buttonX} onClick={(() => handleDelete(t))}>X</button>
                 </div>

@@ -9,7 +9,7 @@ export default function Filters() {
 
   useEffect(() => {
     dispatch(getTemperaments());
-  }, []);
+  }, [dispatch]);
 
   function handleChangeFilter(e) {
     dispatch(filterBy(e.target.value));

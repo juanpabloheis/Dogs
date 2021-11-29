@@ -11,7 +11,7 @@ export default function Dogs() {
   
   useEffect(() => {
     dispatch(getBreeds());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={styles.container} >

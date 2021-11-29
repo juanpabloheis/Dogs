@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getBreeds, getTemperaments } from "../../Actions/Index";
+import React from "react";
 import { Dogs, NavBar1, Filters, Pagination, Footer } from "../../Componentes/index";
 import styles from "./Home.module.css";
 

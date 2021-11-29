@@ -7,8 +7,8 @@ export default function Footer() {
         <div className={styles.container}>
             <p>by Dev. Juan Pablo Heis |</p>
             <div className={styles.icons}>
-                <a href="https://www.linkedin.com/in/juanpabloheis/" target="_blank"><BsLinkedin />  </a>
-                <a href="https://github.com/juanpabloheis/Dogs" target="_blank"><BsGithub /></a>
+                <a href="https://www.linkedin.com/in/juanpabloheis/" target="_blank"  rel="noreferrer"><BsLinkedin />  </a>
+                <a href="https://github.com/juanpabloheis/Dogs" target="_blank" rel="noreferrer"><BsGithub /></a>
             </div>
         </div>
     )

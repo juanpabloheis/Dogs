@@ -4,9 +4,9 @@ import { setDogsPerPage } from "../../Actions/Index";
 import styles from "./Pagination.module.css";
 
 export default function Pagination() {
-  const { breedsFiltered, page } = useSelector((state) => state);
+  const { breedsFiltered } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const [currentPage, setCurrentPage] = useState(page);
+  const [currentPage, setCurrentPage] = useState(1);
   
   function handleDogsPerPage(currentPage, numberDogsPerPage, breedsFiltered){
     const indexLastDog = currentPage * numberDogsPerPage; // Número 'index' del ultimo personaje de la página = página actual * personajes x página

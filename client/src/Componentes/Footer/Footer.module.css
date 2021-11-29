@@ -7,3 +7,15 @@
     padding: 0;
     margin: 0;
 }
+
+.icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50px;
+    padding: 0 10px;  
+}
+
+.icons a:hover {
+    box-shadow: 0 0 5px var(--secondary-color);
+}

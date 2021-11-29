@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getDetail, deleteDetail } from "../../Actions/Index";
-import { NavBar, Loading } from "../../Componentes/index";
+import { NavBar2, Loading } from "../../Componentes/index";
 import styles from "./DogDetail.module.css";
 
 export default function DogDetail(props) {
@@ -19,7 +19,7 @@ export default function DogDetail(props) {
   return (
     <div className={styles.container}>
       <div className={styles.navbar}>
-        <NavBar />
+        <NavBar2 />
       </div>
       {breedDetail ? (
         <div className={styles.containerDetail} >

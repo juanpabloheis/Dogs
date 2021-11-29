@@ -16,10 +16,10 @@
     .container {
         grid-template:
             "navbar      navbar"     55px
+            "filters     pagination" 40px 
             "filters     dogs"       auto
-            "filters     pagination" 50px 
-            "footer      footer"     50px /
-            220px        auto;
+            "footer      footer"     40px /
+            180px        auto;
     }
 }
 
@@ -39,7 +39,7 @@
 .filters {
     padding: 1em;
     grid-area: filters;
-    background-color: var(--secondary-color);
+    background-color: var(--quaternary-color);
     border-right: 1px solid var(--primary-color);
 }
 
@@ -54,7 +54,7 @@
 
 .pagination {
     grid-area: pagination;
-    background-color: grey;
+    background-color: #c3c0c0fa;
 }
 
 .footer {

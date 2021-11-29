@@ -3,6 +3,8 @@ let initialState = {
   breedsFiltered: [],
   temperaments: [],
   breedDetail: {},
+  dogsPerPage:[],
+  page: 1,
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -16,6 +18,7 @@ export default function rootReducer(state = initialState, action) {
     case "GET_BREEDS_NAME":
       return {
         ...state,
+        page: 1,
         breedsFiltered: action.payload,
       };
     case "GET_DETAIL":
@@ -39,9 +42,9 @@ export default function rootReducer(state = initialState, action) {
       };
     case "ORDER_BY":
       if (action.payload === "A-Z") {
-        console.log({ "entre a Reducer A-Z": action.payload });
         return {
           ...state,
+          page: 1,
           breedsFiltered: [
             ...state.breedsFiltered.sort((a, b) => {
               if (a.name.toUpperCase() > b.name.toUpperCase()) {
@@ -54,9 +57,9 @@ export default function rootReducer(state = initialState, action) {
         };
       }
       if (action.payload === "Z-A") {
-        console.log({ "entre a Reducer Z-A": action.payload });
         return {
           ...state,
+          page: 1,
           breedsFiltered: [
             ...state.breedsFiltered.sort((a, b) => {
               if (a.name.toUpperCase() < b.name.toUpperCase()) {
@@ -69,9 +72,9 @@ export default function rootReducer(state = initialState, action) {
         };
       }
       if (action.payload === "- a +") {
-        console.log({ "estoy en reducer -a+": action.payload });
         return {
           ...state,
+          page: 1,
           breedsFiltered: [
             ...state.breedsFiltered.sort(
               (a, b) =>
@@ -84,6 +87,7 @@ export default function rootReducer(state = initialState, action) {
       if (action.payload === "+ a -") {
         return {
           ...state,
+          page: 1,
           breedsFiltered: [
             ...state.breedsFiltered.sort(
               (a, b) =>
@@ -95,21 +99,23 @@ export default function rootReducer(state = initialState, action) {
       } else {
         return {
           ...state,
+          page: 1,
           breedsFiltered: [...state.breedsFiltered],
         };
       }
 
     case "FILTER_BY":
-      console.log({ "Entre a FILTER_BY": action.payload });
       if (action.payload === "All Dogs") {
         return {
           ...state,
+          page: 1,
           breedsFiltered: [...state.breeds],
         };
       }
       if (action.payload === "API") {
         return {
           ...state,
+          page: 1,
           breedsFiltered: state.breeds.filter(
             (dog) => typeof dog.id === "number"
           ),
@@ -118,6 +124,7 @@ export default function rootReducer(state = initialState, action) {
       if (action.payload === "Created by User") {
         return {
           ...state,
+          page: 1,
           breedsFiltered: state.breeds.filter(
             (dog) => typeof dog.id === "string"
           ),
@@ -126,23 +133,30 @@ export default function rootReducer(state = initialState, action) {
       if (action.payload === "Temperaments") {
         return {
           ...state,
+          page: 1,
           breedsFiltered: [...state.breeds],
         };
       } else {
         return {
           ...state,
+          page: 1,
           breedsFiltered: state.breeds.filter((dog) => {
             return dog.temperament?.includes(action.payload);
           }),
         };
       }
     case "CLEAN_FILTERS":
-      console.log({ "Entre a CLEAN_FILTERS": action.payload });
       return {
         ...state,
+        page: 1,
         breedsFiltered: [...state.breeds],
       };
 
+    case "SET_DOGS_PER_PAGE":
+      return {
+        ...state,
+        dogsPerPage: action.payload,
+      }
     default:
       return state;
   }

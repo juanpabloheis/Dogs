@@ -3,7 +3,7 @@ import { addDog } from "../../Actions/Index";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./CreateDog.module.css";
 import { getTemperaments } from "../../Actions/Index";
-import { NavBar } from "../../Componentes/index";
+import { NavBar2 } from "../../Componentes/index";
 import { validate } from "./validate";
 
 export default function FormDog() {
@@ -28,7 +28,6 @@ export default function FormDog() {
   }, [dispatch]);
 
   function handleChange(e) {
-    console.log('e.target.name', e.target.name)
     setError(
       validate(
         e.target.name === "temperaments" 
@@ -38,9 +37,8 @@ export default function FormDog() {
     );
 
     if(!error.temperaments && e.target.name === "temperaments"){
-      setInput(
-        {...input, [e.target.name]: [...input.temperaments, e.target.value]}
-      )
+      //Con Set eliminamos los temperamentos repetidos
+      setInput({...input, [e.target.name]: [...new Set([...input.temperaments, e.target.value])]});
     } else if (!error.temperaments) {
       setInput({...input, [e.target.name]: e.target.value}
       )
@@ -85,7 +83,7 @@ export default function FormDog() {
   return (
     <div className={styles.container}>
       <div className={styles.navbar}>
-        <NavBar />
+        <NavBar2 />
       </div>
       <div className={styles.containerDetail}>
         <form className={styles.card} onSubmit={(e) => handleSubmit(e)}>
@@ -105,7 +103,7 @@ export default function FormDog() {
           </div>
 
           <div className={styles.divContainer}>
-            <label>Height* </label>
+            <label>Height* (cm) </label>
             <div className={error.height ? styles.inputDanger2 : styles.inputContainer}>
               <input
                 className={styles.input2}
@@ -130,7 +128,7 @@ export default function FormDog() {
           </div>
 
           <div className={styles.divContainer}>
-            <label>Weight* </label>
+            <label>Weight* (Kg)</label>
             <div className={styles.inputContainer}>
               <input
                 className={styles.input2}

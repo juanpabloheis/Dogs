@@ -1,13 +1,17 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterBy, orderBy, cleanFilters } from "../../Actions/Index";
+import { filterBy, orderBy, cleanFilters, getTemperaments } from "../../Actions/Index";
 import styles from "./Filters.module.css";
 
 export default function Filters() {
   const dispatch = useDispatch();
   const temperaments = useSelector((state) => state.temperaments);
 
+  useEffect(() => {
+    dispatch(getTemperaments());
+  }, []);
+
   function handleChangeFilter(e) {
-    console.log("e.target.value", e.target.value);
     dispatch(filterBy(e.target.value));
   }
 
@@ -25,8 +29,8 @@ export default function Filters() {
 
       <br />
 
-      <label>Temperaments: </label>
-      <select className={styles.inputs} onChange={handleChangeFilter}>
+      <label>Temperaments:</label>
+      <select className={styles.select} onChange={handleChangeFilter}>
         {temperaments?.map((temp, index) => {
           return (
             <option value={temp} key={index}>
@@ -35,12 +39,13 @@ export default function Filters() {
           );
         })}
       </select>
+      
 
       <br />
 
       <label>Created by: </label>
-      <div className={styles.inputs}>
-        <select className={styles.inputs} onChange={handleChangeFilter}>
+      <div className={styles.select}>
+        <select className={styles.select} onChange={handleChangeFilter}>
           <option value="API">API</option>
           <option value="Created by User">Created by User</option>
         </select>
@@ -56,7 +61,7 @@ export default function Filters() {
       <br />
 
       <label>ABC: </label>
-      <select className={styles.inputs} onChange={handleChangeOrder}>
+      <select className={styles.select} onChange={handleChangeOrder}>
         <option value="A-Z">A-Z</option>
         <option value="Z-A">Z-A</option>
       </select>
@@ -64,7 +69,7 @@ export default function Filters() {
       <br />
 
       <label>Weight: </label>
-      <select className={styles.inputs} onChange={handleChangeOrder}>
+      <select className={styles.select} onChange={handleChangeOrder}>
         <option value="- a +">- a +</option>
         <option value="+ a -">+ a -</option>
       </select>

@@ -92,7 +92,6 @@ router.get('/:idRaza', async (req, res, next) => {
     const { idRaza } = req.params;
     try {
         if (idRaza.length < 4) {
-            console.log('hola')
             let apiDogsPromise = await axios.get('https://api.thedogapi.com/v1/breeds');
             let apiDogs = apiDogsPromise.data;
             apiDogDetail = apiDogs.find(dog => dog.id == idRaza)

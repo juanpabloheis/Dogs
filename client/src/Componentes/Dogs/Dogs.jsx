@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Dog, Loading } from "../index";
+import { getBreeds } from "../../Actions/Index";
 import styles from "./Dogs.module.css";
 
-export default function Dogs({ breeds }) {
-  const [state, setstate] = useState(breeds);
-
+export default function Dogs() {
+  const dispatch = useDispatch();
+  const breeds = useSelector(state => state.dogsPerPage)
+  
   useEffect(() => {
-    setstate(breeds);
-  }, [state]);
+    dispatch(getBreeds());
+  }, []);
 
   return (
     <div className={styles.container} >

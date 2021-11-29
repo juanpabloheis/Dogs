@@ -1,4 +1,4 @@
-const axios = require('axios');
+const axios = require("axios");
 const { Temperament } = require("../db.js");
 
 async function preloadTemperaments() {
@@ -7,11 +7,12 @@ async function preloadTemperaments() {
       "https://api.thedogapi.com/v1/breeds"
     );
     let apiTemperaments = apiTemperamentsPromise.data;
-    arrayTemperaments = apiTemperaments.reduce((acum, dog) => {
-      return (acum = acum.concat(dog.temperament && dog.temperament));
+    let arrayTemperaments = apiTemperaments.reduce((acum, dog) => {
+      return (acum = acum.concat(dog.temperament && dog.temperament.replace(/ /g, "") + ","));
     }, "");
     arrayTemperaments = arrayTemperaments?.split(",");
-    arrayTemperaments = arrayTemperaments.map((e) => e?.trim());
+    arrayTemperaments = arrayTemperaments.filter(temperament => temperament !== "");
+    arrayTemperaments = [...new Set(arrayTemperaments.sort())];
     arrayTemperaments.map(async (temperaments) => {
       await Temperament?.findOrCreate({
         where: {
@@ -24,4 +25,4 @@ async function preloadTemperaments() {
   }
 }
 
-module.exports = preloadTemperaments
+module.exports = preloadTemperaments;

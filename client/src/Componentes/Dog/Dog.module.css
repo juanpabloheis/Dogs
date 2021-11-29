@@ -12,8 +12,7 @@
 }
 
 .container:hover {
-  border: 1px solid rgba(29, 28, 28, 0.836);
-  transition-duration: 10s;
+  box-shadow: 0 0 15px var(--primary-color);
 }
 
 .container img {

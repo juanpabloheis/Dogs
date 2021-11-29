@@ -7,35 +7,10 @@ export function getBreeds(name) {
         if (name) {
             let breeds = await axios.get(URL_BREEDS_NAME + name);
             breeds = breeds.data;
-
-            // breeds = breeds.map(dog => {
-            //     if (typeof dog.temperaments === 'object') {
-            //         let temp = [];
-            //         dog.temperaments.forEach(d => temp.push(d.name))
-            //         return { ...dog, temperament: temp.join(', ')};
-            //     } else{
-            //         return {...dog}
-            //     }
-            // })
-
-            console.log({ 'entre a getBreeds - breeds.data': breeds })
             return dispatch({ type: 'GET_BREEDS_NAME', payload: breeds });
-
         } else {
             let breeds = await axios.get(URL_BREEDS);
             breeds = breeds.data;
-
-            // breeds = breeds.map(dog => {
-            //     if (typeof dog.temperaments === 'object') {
-            //         let temp = [];
-            //         dog.temperaments.forEach(d => temp.push(d.name))
-            //         return { ...dog, temperament: temp.join(', ')};
-            //     } else{
-            //         return {...dog}
-            //     }
-            // })
-
-            console.log({ 'Entre a Actions - getBreeds': breeds })
             return dispatch({ type: 'GET_BREEDS', payload: breeds });
         }
     };
@@ -68,16 +43,18 @@ export function getTemperaments() {
 }
 
 export function filterBy(payload) {
-    console.log({ 'Entre a Actions - filterBy': payload })
     return { type: 'FILTER_BY', payload: payload }
 };
 
 export function orderBy(payload) {
-    console.log({ 'Entre a Actions - orderBy': payload })
     return { type: 'ORDER_BY', payload: payload }
 };
 
 export function cleanFilters() {
     return { type: 'CLEAN_FILTERS' }
 };
+
+export function setDogsPerPage(payload) {
+    return { type: 'SET_DOGS_PER_PAGE', payload: payload }
+}
 

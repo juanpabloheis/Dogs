@@ -54,7 +54,7 @@
 
 .pagination {
     grid-area: pagination;
-    background-color: #c3c0c0fa;
+    background-color: var(--quaternary-color);
 }
 
 .footer {

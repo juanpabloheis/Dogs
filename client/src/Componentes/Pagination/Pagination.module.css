@@ -7,17 +7,14 @@
 }
 
 .button {
-  /* border: none; */
   border: none;
-  border-radius: 0.1em;
   color: black;
-  background-color: #9b979970;
+  background-color: rgba(78, 76, 76, 0.164);
   width: 4vh;
   height: 20px;
   margin: 1px;
   cursor: pointer;
   font-size: 0.8em;
-  
 }
 
 .button:hover {

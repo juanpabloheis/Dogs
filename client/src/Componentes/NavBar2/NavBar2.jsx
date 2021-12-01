@@ -8,7 +8,7 @@ export default function NavBar2() {
     <div className={styles.container}>
       <Link to={`/home`} className={styles.containerLogo}>
         <img src={image} alt="logo" className={styles.logo} />
-        <p /* className={styles.btn} */>HenryDogs</p>
+        <p className={styles.textLogo}>HenryDogs</p>
       </Link>
       <Link to={`/home`} className={styles.containerLogo}>
         <button className={styles.btn}>HOME</button>

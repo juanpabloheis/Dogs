@@ -4,7 +4,8 @@
   display: grid;
   grid-template:
       "navbar"           55px
-      "containerDetail"  auto;
+      "containerDetail"  auto/
+      100vw;
 }
 
 .navbar {

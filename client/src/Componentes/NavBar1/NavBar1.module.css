@@ -1,3 +1,4 @@
+
 .container {
   font-size: 1rem;
   display: flex;
@@ -5,7 +6,12 @@
   align-items: center;
   height: 100%;
   box-shadow: 0 0 3px rgba(255, 255, 255, 0.52);
+}
+
+@media (min-width: 600px){
+  .container {
   padding: 0 1rem;
+  }
 }
 
 .containerLogo{
@@ -47,4 +53,28 @@
 
 .btn:hover {
   text-shadow: 0 0 10px var(--secondary-color);
+}
+
+.textLogo {
+  display: none;
+}
+
+@media (min-width: 600px){
+  .textLogo {
+    display: block;
+  }
+}
+
+.textLogo p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  color: var(--secondary-color);
+  border: none;
+  height: 35px;
+  border-radius: 3px;
+  background: none;
+  cursor: pointer;
+  font-weight: bold;
 }

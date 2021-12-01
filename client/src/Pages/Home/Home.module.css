@@ -6,9 +6,10 @@
     grid-template:
         "navbar"     55px
         "filters"    50px
-        "dogs"       auto
         "pagination" 50px
-        "footer"     50px;
+        "dogs"       auto
+        "footer"     50px /
+        100vw;
 }
   
 /* Para notebook */

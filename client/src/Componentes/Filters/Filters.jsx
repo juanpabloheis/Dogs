@@ -39,7 +39,6 @@ export default function Filters() {
           );
         })}
       </select>
-      
 
       <br />
 

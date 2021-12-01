@@ -26,6 +26,25 @@
   text-shadow: 0 0 10px var(--secondary-color);
 }
 
+.textLogo {
+  display: none;
+  font-size: 1em;
+  color: var(--secondary-color);
+  border: none;
+  height: 35px;
+  border-radius: 3px;
+  background: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Para notebook */
+@media (min-width: 600px){
+  .textLogo {
+    display: block;
+  }
+}
+
 .logo {
   width: 45px;
   height: 45px;

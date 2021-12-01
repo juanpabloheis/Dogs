@@ -6,7 +6,7 @@
     grid-template:
         "navbar"     55px
         "filters"    50px
-        "pagination" 50px
+        "pagination" min-content
         "dogs"       auto
         "footer"     50px /
         100vw;
@@ -42,6 +42,9 @@
     grid-area: filters;
     background-color: var(--quaternary-color);
     border-right: 1px solid var(--primary-color);
+/*     display: flex;
+    align-items: center;
+    justify-content: center; */
 }
 
 .dogs {

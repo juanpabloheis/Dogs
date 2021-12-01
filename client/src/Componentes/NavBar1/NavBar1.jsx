@@ -17,7 +17,6 @@ export default function NavBar1() {
       <button onClick={()=>handlecleanFilters()} className={styles.containerLogo}>
         <img src={image} alt="logo" className={styles.logo} />
         <div className={styles.textLogo}><p>HenryDogs</p></div>
-        
       </button>
       <SearchBar />
       <Link to={`/createDog`}>

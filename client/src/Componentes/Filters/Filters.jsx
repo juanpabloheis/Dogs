@@ -1,11 +1,17 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterBy, orderBy, cleanFilters, getTemperaments } from "../../Actions/Index";
+import {
+  filterBy,
+  orderBy,
+  cleanFilters,
+  getTemperaments,
+} from "../../Actions/Index";
 import styles from "./Filters.module.css";
 
 export default function Filters() {
   const dispatch = useDispatch();
   const temperaments = useSelector((state) => state.temperaments);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     dispatch(getTemperaments());
@@ -25,57 +31,126 @@ export default function Filters() {
 
   return (
     <div className={styles.container}>
-      <label>Filter by: </label>
+      <div className={styles.containerFilters1}>
+        <div className={styles.containerFilters2}>
+          <label>Filter by: </label>
 
-      <br />
+          <br />
 
-      <label>Temperaments:</label>
-      <select className={styles.select} onChange={handleChangeFilter}>
-        {temperaments?.map((temp, index) => {
-          return (
-            <option value={temp} key={index}>
-              {temp}
-            </option>
-          );
-        })}
-      </select>
+          <label>Temperaments:</label>
+          <select className={styles.select} onChange={handleChangeFilter}>
+            {temperaments?.map((temp, index) => {
+              return (
+                <option value={temp} key={index}>
+                  {temp}
+                </option>
+              );
+            })}
+          </select>
 
-      <br />
+          <br />
 
-      <label>Created by: </label>
-      <div className={styles.select}>
-        <select className={styles.select} onChange={handleChangeFilter}>
-          <option value="API">API</option>
-          <option value="Created by User">Created by User</option>
-        </select>
-        {/*<label><input type="checkbox" value="API" />API</label>
-          <label><input type="checkbox" value="Created by User"/>Created by User</label> */}
+          <label>Created by: </label>
+          <div className={styles.select}>
+            <select className={styles.select} onChange={handleChangeFilter}>
+              <option value="API">This site</option>
+              <option value="Created by User">Users</option>
+            </select>
+            {/*<label><input type="checkbox" value="API" />API</label>
+              <label><input type="checkbox" value="Created by User"/>Created by User</label> */}
+          </div>
+
+          <br />
+          <br />
+
+          <label>Order by: </label>
+
+          <br />
+
+          <label>ABC: </label>
+          <select className={styles.select} onChange={handleChangeOrder}>
+            <option value="A-Z">A-Z</option>
+            <option value="Z-A">Z-A</option>
+          </select>
+
+          <br />
+
+          <label>Weight: </label>
+          <select className={styles.select} onChange={handleChangeOrder}>
+            <option value="- a +">- a +</option>
+            <option value="+ a -">+ a -</option>
+          </select>
+
+          <br />
+
+          <button className={styles.btn} onClick={() => handlecleanFilters()}>
+            Reset
+          </button>
+        </div>
       </div>
 
-      <br />
-      <br />
+      {/* <div className={styles.btnOpenFilters}> */}
+        <button className={styles.btnOpenFilters} onClick={() => setOpen(!open)}>Filters</button>
+      {/* </div> */}
+      {open && (
+        <div className={styles.containerSideBar}>
+          <button className={styles.btnCloseFilters} onClick={() => setOpen(!open)}>X</button>
 
-      <label>Order by: </label>
+          <label>Filter by: </label>
 
-      <br />
+          <br />
 
-      <label>ABC: </label>
-      <select className={styles.select} onChange={handleChangeOrder}>
-        <option value="A-Z">A-Z</option>
-        <option value="Z-A">Z-A</option>
-      </select>
+          <label>Temperaments:</label>
+          <select className={styles.select} onChange={handleChangeFilter}>
+            {temperaments?.map((temp, index) => {
+              return (
+                <option value={temp} key={index}>
+                  {temp}
+                </option>
+              );
+            })}
+          </select>
 
-      <br />
+          <br />
 
-      <label>Weight: </label>
-      <select className={styles.select} onChange={handleChangeOrder}>
-        <option value="- a +">- a +</option>
-        <option value="+ a -">+ a -</option>
-      </select>
+          <label>Created by: </label>
+          <div className={styles.select}>
+            <select className={styles.select} onChange={handleChangeFilter}>
+              <option value="API">This site</option>
+              <option value="Created by User">Users</option>
+            </select>
+            {/*<label><input type="checkbox" value="API" />API</label>
+            <label><input type="checkbox" value="Created by User"/>Created by User</label> */}
+          </div>
 
-      <br />
+          <br />
+          <br />
 
-      <button className={styles.btn} onClick={() => handlecleanFilters()}>Reset</button>
+          <label>Order by: </label>
+
+          <br />
+
+          <label>ABC: </label>
+          <select className={styles.select} onChange={handleChangeOrder}>
+            <option value="A-Z">A-Z</option>
+            <option value="Z-A">Z-A</option>
+          </select>
+
+          <br />
+
+          <label>Weight: </label>
+          <select className={styles.select} onChange={handleChangeOrder}>
+            <option value="- a +">- a +</option>
+            <option value="+ a -">+ a -</option>
+          </select>
+
+          <br />
+
+          <button className={styles.btn} onClick={() => handlecleanFilters()}>
+            Reset
+          </button>
+        </div>
+      )}
     </div>
   );
 }

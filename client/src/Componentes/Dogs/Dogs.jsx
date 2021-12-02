@@ -23,7 +23,7 @@ export default function Dogs() {
             <Link key={dog.id} to={`/detail/${dog.id}`} className={styles.link}>
               <Dog
                 name={dog.name.toUpperCase()}
-                image={dog?.image?.url}
+                image={dog?.image?.url || dog?.image || 'https://fearfuldogs.com/wp-content/uploads/2011/03/questioningdog-285x300.jpg'}
                 temperament={dog.temperament}
                 key={dog.id}
               />

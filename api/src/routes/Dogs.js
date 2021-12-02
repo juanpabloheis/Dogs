@@ -97,8 +97,16 @@ router.get('/:idRaza', async (req, res, next) => {
             apiDogDetail = apiDogs.find(dog => dog.id == idRaza)
             res.json(apiDogDetail);
         } else {
-            let dbDogDetail = await Dog.findByPk(idRaza)
-            res.json(dbDogDetail)
+            let dbDogDetail = await Dog.findByPk( idRaza, { 
+                include: {
+                    model: Temperament,
+                    attributes: ['name'],
+                    through: {
+                        attributes: []
+                    }
+                }
+            });
+            res.json({...dbDogDetail.toJSON(), temperament: dbDogDetail.toJSON().temperaments.map(t => t.name).join(', ')})
         }
     }
     catch (e) {

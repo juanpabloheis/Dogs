@@ -4,7 +4,7 @@ const { Dog, Temperament } = require('../db.js');
 const router = express.Router();
 
 router.post('/', async (req, res, next) => {
-    const { name, height, weight, life_span, temperaments } = req.body;
+    const { name, height, weight, life_span, temperament, image } = req.body;
     try{
         const dogCreated = await Dog.findOrCreate({
             where:{name}, 
@@ -13,11 +13,12 @@ router.post('/', async (req, res, next) => {
                 name,
                 height, 
                 weight,
-                life_span
+                life_span,
+                image
             }
         })
         
-        temperaments.forEach(async temp => {
+        temperament.forEach(async temp => {
             await dogCreated[0].addTemperaments(temp)
         })
 

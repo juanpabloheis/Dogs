@@ -18,7 +18,7 @@ export default function FormDog() {
     minLifeSpan: "",
     maxLifeSpan: "",
     image: undefined,
-    temperaments: [],
+    temperament: [],
   });
 
   const [error, setError] = useState("");
@@ -30,16 +30,16 @@ export default function FormDog() {
   function handleChange(e) {
     setError(
       validate(
-        e.target.name === "temperaments" 
-        ? {...input, [e.target.name]: [...input.temperaments, e.target.value] }
+        e.target.name === "temperament" 
+        ? {...input, [e.target.name]: [...input.temperament, e.target.value] }
         : {...input, [e.target.name]: e.target.value}
       )
     );
 
-    if(!error.temperaments && e.target.name === "temperaments"){
+    if(!error.temperament && e.target.name === "temperament"){
       //Con Set eliminamos los temperamentos repetidos
-      setInput({...input, [e.target.name]: [...new Set([...input.temperaments, e.target.value])]});
-    } else if (!error.temperaments) {
+      setInput({...input, [e.target.name]: [...new Set([...input.temperament, e.target.value])]});
+    } else if (!error.temperament) {
       setInput({...input, [e.target.name]: e.target.value}
       )
     }
@@ -53,9 +53,9 @@ export default function FormDog() {
         name: input.name,
         height: `${input.minHeight} - ${input.maxHeight}`,
         weight: `${input.minWeight} - ${input.maxWeight}`,
-        life_span: `${input.minLifeSpan} - ${input.maxLifeSpan}`,
+        life_span: `${input.minLifeSpan} - ${input.maxLifeSpan} years`,
         image: input.image,
-        temperaments: input.temperaments
+        temperament: input.temperament
       }));
 
       setInput({  
@@ -67,7 +67,7 @@ export default function FormDog() {
         minLifeSpan: "",
         maxLifeSpan: "",
         image: "",
-        temperaments: [],
+        temperament: [],
       });
       alert("The dog was successfully created");
     }
@@ -76,7 +76,7 @@ export default function FormDog() {
   function handleDelete(t) {
     setInput({
         ...input,
-        temperaments: input.temperaments.filter(e => e !== t)
+        temperament: input.temperament.filter(e => e !== t)
     })
   }
 
@@ -194,21 +194,21 @@ export default function FormDog() {
             <select
               className={styles.input}
               onChange={(e) => handleChange(e)}
-              name="temperaments"
+              name="temperament"
             >
               <option className={styles.input} >Select temperament</option>
               {temperaments?.map((temp, index) => {
                 return (
-                  <option name="temperaments" value={input.temp} key={index}>
+                  <option name="temperament" value={input.temp} key={index}>
                     {temp}
                   </option>
                 );
               })}
             </select>
 
-            { error.temperaments && <p className={styles.danger}>{ error.temperaments }</p> }
+            { error.temperament && <p className={styles.danger}>{ error.temperament }</p> }
             <div className={styles.temperamentsContainer}>
-              {input.temperaments.map((t, key) => 
+              {input.temperament.map((t, key) => 
                 <div className={styles.tempList} key={key}>
                   <p className={styles.tempItem}>{t}</p>
                   <button className={styles.buttonX} onClick={(() => handleDelete(t))}>X</button>

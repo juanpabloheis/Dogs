@@ -9,7 +9,7 @@ export default function Landing() {
         <Link to='/home'>
           <button className='btnLanding' >WELCOME</button>
         </Link>
-      </div>
+      </div> 
     </div>
   )
 };

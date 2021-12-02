@@ -25,30 +25,24 @@ export default function DogDetail(props) {
         <div className={styles.containerDetail} >
           <div className={styles.card}>
             <img
-              className="image"
               src={breedDetail?.image ? breedDetail.image.url : <Loading />}
               alt="Not found"
             />
             <h3>{breedDetail.name}</h3>
-            <h4>
-              Height:{" "}
-              {breedDetail.height?.metric
-                ? breedDetail.height.metric
-                : breedDetail.height}{" "}
-              cm
-            </h4>
-            <h4>
-              Weight:{" "}
-              {breedDetail.weight?.metric
-                ? breedDetail.weight.metric
-                : breedDetail.weight}{" "}
-              kg
-            </h4>
-            <h4>Life span: {breedDetail.life_span}</h4>
+            <hr className={styles.hr}/>
+            <div className={styles.containerPropsDog}>
+              <p>{`- Height: ${breedDetail.height?.metric} cm`}</p>
+              <p>{`- Weight: ${breedDetail.weight?.metric} kg`}</p>
+              <p>{`- Life span: ${breedDetail.life_span}`}</p>
+              <p>- Temperament: </p>
+              <p>{breedDetail.temperament}</p>
+            </div>
           </div>
         </div>
       ) : (
-        <Loading />
+        <div className={styles.containerLoading}>
+          <Loading />
+        </div>
       )}
     </div>
   );

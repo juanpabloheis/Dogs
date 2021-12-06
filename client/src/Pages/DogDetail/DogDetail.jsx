@@ -31,8 +31,8 @@ export default function DogDetail(props) {
             <h3>{breedDetail.name}</h3>
             <hr className={styles.hr}/>
             <div className={styles.containerPropsDog}>
-              <p>{`- Height: ${breedDetail.height?.metric || breedDetail.height} cm`}</p>
-              <p>{`- Weight: ${breedDetail.weight?.metric || breedDetail.weight} kg`}</p>
+              <p>{`- Height: ${breedDetail.height} cm`}</p>
+              <p>{`- Weight: ${breedDetail.weight} kg`}</p>
               <p>{`- Life span: ${breedDetail.life_span}`}</p>
               <p>- Temperament: </p>
               <p>{breedDetail.temperament}</p>

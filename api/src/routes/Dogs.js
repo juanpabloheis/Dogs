@@ -18,6 +18,13 @@ router.get('/', async (req, res, next) => {
     try {
         let apiDogsPromise = await axios.get('https://api.thedogapi.com/v1/breeds');
         apiDogs = apiDogsPromise.data;
+        apiDogs = apiDogs.map(e => {
+            return {
+                ...e, 
+                height: e.height.metric,
+                weight: e.weight.metric,
+            }
+        }) 
 
         if (name) {
             let dbDogs = await Dog.findAll({
@@ -95,6 +102,11 @@ router.get('/:idRaza', async (req, res, next) => {
             let apiDogsPromise = await axios.get('https://api.thedogapi.com/v1/breeds');
             let apiDogs = apiDogsPromise.data;
             apiDogDetail = apiDogs.find(dog => dog.id == idRaza)
+            apiDogDetail = {
+                ...apiDogDetail, 
+                height: apiDogDetail.height.metric,
+                weight: apiDogDetail.weight.metric,
+            }
             res.json(apiDogDetail);
         } else {
             let dbDogDetail = await Dog.findByPk( idRaza, { 

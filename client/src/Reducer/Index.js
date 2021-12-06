@@ -72,9 +72,7 @@ export default function rootReducer(state = initialState, action) {
           ...state,
           breedsFiltered: [
             ...state.breedsFiltered.sort(
-              (a, b) =>
-                a.weight.imperial.split("-")[0] -
-                b.weight.imperial.split("-")[0]
+              (a, b) => (Number(a.weight.split("-")[0]) + Number(a.weight.split("-")[1])/2) - (Number(b.weight.split("-")[0]) + Number(b.weight.split("-")[1])/2)
             ),
           ],
         };
@@ -84,9 +82,7 @@ export default function rootReducer(state = initialState, action) {
           ...state,
           breedsFiltered: [
             ...state.breedsFiltered.sort(
-              (a, b) =>
-                b.weight.imperial.split("-")[0] -
-                a.weight.imperial.split("-")[0]
+              (a, b) => (Number(b.weight.split("-")[0]) + Number(b.weight.split("-")[1]))/2 - (Number(a.weight.split("-")[0]) + Number(a.weight.split("-")[1]) )/2
             ),
           ],
         };

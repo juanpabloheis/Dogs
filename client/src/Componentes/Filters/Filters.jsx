@@ -77,8 +77,8 @@ export default function Filters() {
 
           <label>Weight: </label>
           <select className={styles.select} onChange={handleChangeOrder}>
-            <option value="- a +">- a +</option>
-            <option value="+ a -">+ a -</option>
+            <option value="- a +">- to +</option>
+            <option value="+ a -">+ to -</option>
           </select>
 
           <br />
@@ -140,8 +140,8 @@ export default function Filters() {
 
           <label>Weight: </label>
           <select className={styles.select} onChange={handleChangeOrder}>
-            <option value="- a +">- a +</option>
-            <option value="+ a -">+ a -</option>
+            <option value="- a +">- to +</option>
+            <option value="+ a -">+ to -</option>
           </select>
 
           <br />
